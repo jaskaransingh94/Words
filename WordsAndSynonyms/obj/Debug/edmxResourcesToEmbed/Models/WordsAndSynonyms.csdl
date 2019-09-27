@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WordsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WordsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="words" EntityType="WordsModel.word" />
+  </EntityContainer>
+  <EntityType Name="word">
+    <Key>
+      <PropertyRef Name="wordId" />
+    </Key>
+    <Property Name="wordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="word1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="updatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,126 @@
+﻿@{
+	ViewBag.Title = "BackEnd";
+}
+<link href="~/Dependencies/css/backend.css" rel="stylesheet" />
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<h4>Confirmation</h4>
+		<p>Are you sure you want to start the syncing process?</p>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+		<a id="confirmUpload" href="#!" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+	</div>
+</div>
+<button onclick=""></button>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">Logo</a>
+		<ul id="nav-mobile" class="right">
+			<li class="flex"><i class="material-icons prefix">featured_play_list</i><a href="sass.html">PlayList</a></li>
+			<li class="flex"><i class="material-icons prefix">home</i><a href="@Url.Action("Index", "Home")">Homepage</a></li>
+		</ul>
+	</div>
+</nav>
+<div class="container page">
+	<div class="content">
+		<h3 class="row flow-text">
+			Press the button to load the Dictionary.
+		</h3>
+		<div class="row">
+			<a id="loadDictionary" class="waves-effect waves-light pulse btn-large"><i class="material-icons right">cloud</i>Load</a>
+		</div>
+		<div class="row">
+			<div id="fileLoader" class="preloader-wrapper big">
+				<div class="spinner-layer spinner-blue">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer spinner-red">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer spinner-yellow">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer spinner-green">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+			<div class="flow-text wait hide">Please Wait...</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+
+		$('#modal1').modal();
+		let button = $('#loadDictionary');
+		let loader = $('#fileLoader');
+		let wait = $('.wait');
+
+		$("#loadDictionary").click(function (e) {
+			$('#modal1').modal('open');
+		});
+
+		function actions() {
+			button.toggleClass('pulse');
+			loader.toggleClass('active');
+			button.toggleClass('disabled');
+			wait.toggleClass('hide');
+		}
+
+		$("#confirmUpload").click(function (e) {
+			let url = '@Url.Action("loadDb", "Backend")';
+
+			actions();
+
+			$.ajax({
+				url: url,
+				type: 'get',
+				cache: false,
+				success: function (data) {
+					actions();
+					var toastHTML = '<span>Your data has been synced successfully</span><button onclick="cloasToast()" class="btn-flat toast-action">Close</button>';
+					M.toast({ html: toastHTML });
+				},
+				error: function (err) {
+					actions();
+					var toastHTML = '<span>Some error Occurred</span><button onclick="cloasToast()" class="btn-flat toast-action">Close</button>';
+					M.toast({ html: toastHTML });
+				}
+			});
+		});
+	});
+
+	function cloasToast() {
+		M.Toast.dismissAll();
+	}
+
+</script>

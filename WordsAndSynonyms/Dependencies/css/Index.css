@@ -1,0 +1,90 @@
+﻿.ml2 {
+	font-weight: 900;
+	font-size: 4.5em;
+	font-family: Mansalva;
+}
+
+	.ml2 .letter {
+		display: inline-block;
+		line-height: 1em;
+		letter-spacing: 0.1em;
+	}
+
+	.ml2 span:nth-child(1) {
+		color: red;
+	}
+
+	.ml2 span:nth-child(2) {
+		color: green;
+	}
+
+	.ml2 span:nth-child(2) {
+		color: blue;
+	}
+
+	.ml2 span:nth-child(3) {
+		color: purple;
+	}
+
+	.ml2 span:nth-child(4) {
+		color: deeppink;
+	}
+
+	.ml2 span:nth-child(5) {
+		color: orange;
+	}
+
+.search {
+	height: 50%;
+	display: flex;
+}
+
+.logo {
+	height: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.page {
+	height: 85vh;
+}
+
+nav {
+	background-color: white;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+	nav ul li:hover {
+		background-color: white;
+	}
+
+	nav a {
+		color: darkgray;
+	}
+
+	nav ul a {
+		color: darkgray;
+		padding: 0 10px;
+	}
+
+		nav ul a:hover {
+			background-color: white;
+			color: dimgray;
+			text-decoration: underline;
+		}
+
+i {
+	color: darkgray;
+}
+
+.flex {
+	display: flex;
+}
+
+.dropdown-content {
+	width: calc(100% - 3rem) !important;
+	top: 16% !important;
+	max-height: 90% !important;
+}

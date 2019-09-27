@@ -1,0 +1,57 @@
+﻿.content {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+.page {
+	height: 85vh;
+}
+
+nav {
+	background-color: white;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+	nav ul li:hover {
+		background-color: white;
+	}
+
+	nav a {
+		color: darkgray;
+	}
+
+	nav ul a {
+		color: darkgray;
+		padding: 0 10px;
+	}
+
+		nav ul a:hover {
+			background-color: white;
+			color: dimgray;
+			text-decoration: underline;
+		}
+
+i {
+	color: darkgray;
+}
+
+.flex {
+	display: flex;
+}
+
+.disabled {
+	pointer-events: none;
+}
+
+.wait {
+	font-size: 1rem;
+	color: dimgray;
+}
+
+.hide {
+	display: none;
+}
